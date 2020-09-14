@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:launmax_lm_app/ui/constant.dart';
-import 'package:launmax_lm_app/ui/screens/signup/sign_up_1.dart';
 
-import 'package:launmax_lm_app/ui/styles.dart';
+import 'ui/constant.dart';
+import 'ui/screens/signup/sign_up_2.dart';
+import 'ui/styles.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         textTheme: Typography.blackCupertino
             .copyWith(bodyText2: TextStyle(fontFamily: kSFProText)),
       ),
-      home: SignUp1(),
+      home: SignUp2(),
     );
   }
 }

@@ -54,3 +54,8 @@ final buttonTextStyle = TextStyle(
   fontWeight: FontWeight.w300,
   color: AppColor.primaryColor,
 );
+
+final smallTitleTextStyle = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.w600,
+);
