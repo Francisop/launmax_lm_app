@@ -76,7 +76,6 @@ class _SignUp1State extends State<SignUp1> {
                     keyboardType: TextInputType.text,
                     label: 'Last Name',
                     hintText: 'Doe',
-                    obscureText: true,
                   ),
                   SizedBox(height: 20.0),
                   AppTextField(
@@ -84,7 +83,6 @@ class _SignUp1State extends State<SignUp1> {
                     keyboardType: TextInputType.text,
                     label: 'Mobile Phone',
                     hintText: '+234',
-                    obscureText: true,
                   ),
                   SizedBox(height: 20.0),
                   AppDropdown(
