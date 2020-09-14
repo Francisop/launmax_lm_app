@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'ui/constant.dart';
-import 'ui/screens/resetpassword/reset_password.dart';
+import 'ui/screens/homeScreen/home_screen.dart';
 import 'ui/styles.dart';
 
 void main() {
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         textTheme: Typography.blackCupertino
             .copyWith(bodyText2: TextStyle(fontFamily: kSFProText)),
       ),
-      home: ResetPassword(),
+      home: HomeScreen(),
     );
   }
 }
