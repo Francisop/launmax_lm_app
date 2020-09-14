@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'ui/constant.dart';
-import 'ui/screens/signup/sign_up_2.dart';
+import 'ui/screens/signin/sign_in.dart';
 import 'ui/styles.dart';
 
 void main() {
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         textTheme: Typography.blackCupertino
             .copyWith(bodyText2: TextStyle(fontFamily: kSFProText)),
       ),
-      home: SignUp2(),
+      home: SignIn(),
     );
   }
 }

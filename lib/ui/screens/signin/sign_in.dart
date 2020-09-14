@@ -6,12 +6,12 @@ import '../../styles.dart';
 import '../../widgets/app_raised_button.dart';
 import '../../widgets/app_text_field.dart';
 
-class SignUp2 extends StatefulWidget {
+class SignIn extends StatefulWidget {
   @override
-  _SignUp2State createState() => _SignUp2State();
+  _SignInState createState() => _SignInState();
 }
 
-class _SignUp2State extends State<SignUp2> {
+class _SignInState extends State<SignIn> {
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -30,7 +30,7 @@ class _SignUp2State extends State<SignUp2> {
         actions: [
           FlatButton(
             child: Text(
-              'Sign in',
+              'Sign up',
               style: buttonTextStyle,
             ),
             onPressed: () {},
@@ -48,76 +48,64 @@ class _SignUp2State extends State<SignUp2> {
                 children: [
                   SizedBox(height: 20.0),
                   Text(
-                    'Sign up',
+                    'Sign in',
                     style: headlineStyle,
                   ),
                   SizedBox(height: 15.0),
                   Text(
-                    'Hi John',
+                    'Welcome Back!',
                     style: descriptionStyle.copyWith(
                       fontWeight: FontWeight.w600,
                       color: AppColor.neutralBlack,
                     ),
                   ),
+                  SizedBox(height: 20.0),
+                  AppRaisedButton(
+                    text: 'Sign in with Google',
+                    textColor: Colors.black54,
+                    prefixIcon: Image.asset(
+                      'assets/images/googlelogo.png',
+                      width: 24,
+                    ),
+                    onPressed: () {},
+                    backgroundColor: Colors.white,
+                  ),
                   SizedBox(height: 15.0),
+                  AppRaisedButton(
+                    text: 'Sign in with Apple',
+                    textColor: Colors.black54,
+                    prefixIcon: Image.asset(
+                      'assets/images/apple.png',
+                      width: 24,
+                    ),
+                    onPressed: () {},
+                    backgroundColor: Colors.white,
+                  ),
+                  SizedBox(height: 15.0),
+                  Row(
+                    children: [
+                      Expanded(child: Divider()),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Text(
+                          'or',
+                          style: smallTextStyle,
+                        ),
+                      ),
+                      Expanded(child: Divider()),
+                    ],
+                  ),
+                  SizedBox(height: 20.0),
                   Text(
-                    'Setup your laundry business profile to create your account.',
+                    'Fill in your email and password to log in.',
                     style: descriptionStyle,
                   ),
                   SizedBox(height: 20.0),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Center(
-                      child: Stack(
-                        children: [
-                          CircleAvatar(
-                            radius: 30,
-                            child: Image.asset('assets/images/avatar_pic.png'),
-                          ),
-                          Positioned(
-                            bottom: 0,
-                            right: 0,
-                            child: CircleAvatar(
-                              radius: 15,
-                              child: Icon(
-                                Icons.camera_alt,
-                                color: AppColor.background,
-                                size: 20,
-                              ),
-                              backgroundColor: AppColor.primaryColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 15.0),
-                  Center(
-                    child: Text(
-                      'Upload Business Logo',
-                      style: smallTitleTextStyle,
-                    ),
-                  ),
-                  SizedBox(height: 20.0),
                   AppTextField(
                     controller: TextEditingController(),
                     keyboardType: TextInputType.text,
-                    label: 'Business Name',
-                    hintText: 'Business name',
-                  ),
-                  SizedBox(height: 20.0),
-                  AppTextField(
-                    controller: TextEditingController(),
-                    keyboardType: TextInputType.text,
-                    label: 'Business Address',
-                    hintText: 'Enter your business address...',
-                  ),
-                  SizedBox(height: 20.0),
-                  AppTextField(
-                    controller: TextEditingController(),
-                    keyboardType: TextInputType.text,
-                    label: 'Email address',
-                    hintText: 'emily@example.com',
+                    label: 'Email Address',
+                    hintText: 'john@example.com',
                   ),
                   SizedBox(height: 20.0),
                   AppTextField(
@@ -129,11 +117,23 @@ class _SignUp2State extends State<SignUp2> {
                   ),
                   SizedBox(height: 20.0),
                   AppRaisedButton(
-                    text: 'Create Account',
+                    text: 'Login',
                     onPressed: () {
                       formKey.currentState.validate();
                     },
                   ),
+                  SizedBox(height: 5.0),
+                  Center(
+                    child: FlatButton(
+                      child: Text(
+                        'Reset Password',
+                        style: descriptionStyle.copyWith(
+                          color: AppColor.neutralBlack,
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
+                  )
                 ],
               ),
             ),
