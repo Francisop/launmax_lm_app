@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:launmax_lm_app/ui/screens/profile.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 
 import 'home_page.dart';
@@ -13,20 +14,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> _homeItems = <Widget>[
     HomePage(),
+    ProfilePage()
    
   ];
+   final tabs = [
+    HomePage(),
+    ProfilePage()
+  ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  // void _onItemTapped(int index) {
+  //   setState(() {
+  //     _selectedIndex = index;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _selectedIndex == 0 ? HomePage.appBar() : null,
-      body: _homeItems.elementAt(_selectedIndex),
+      body: tabs[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -39,7 +45,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        onTap: null,
+        onTap: (index) {
+          setState(() {
+           _selectedIndex = index;
+          });
+        },
       ),
     );
   }
