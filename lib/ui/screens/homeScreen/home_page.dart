@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:launmax_lm_app/ui/screens/viewPricing.dart';
-import 'package:launmax_lm_app/ui/widgets/app_card.dart';
 
-import '../styles.dart';
+import '../../styles.dart';
+import '../../widgets/app_card.dart';
+import '../viewPricing.dart';
 
 final user = "John";
 
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
           height: 25,
         ),
         Padding(
-         padding: EdgeInsets.symmetric(vertical: 0, horizontal: 17),
+          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 17),
           child: EarningCard(
             text: "Total Earnings",
             subtext: "₦2,000,000",
@@ -167,14 +167,13 @@ class EarningCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Color.fromRGBO(228, 228, 228, 0.6))
-      ),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Color.fromRGBO(228, 228, 228, 0.6))),
       child: AppCard(
         radius: 10.0,
         blurRadius: 6.0,
         color: Colors.white,
-        child: InkWell( 
+        child: InkWell(
           borderRadius: BorderRadius.circular(10),
           onTap: onTap,
           child: Material(
@@ -190,25 +189,33 @@ class EarningCard extends StatelessWidget {
                       Text(
                         text,
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, color: Color(0xff181E26)),
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff181E26)),
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Text(
                         subtext,
                         style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 19, color: Color(0xff787676)),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 19,
+                            color: Color(0xff787676)),
                       ),
                     ],
                   ),
-                 
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       StarDisplayWidget(
-  value: 4,
-  filledStar: Icon(Icons.star, color: Color(0xffFFD400), ),
-  unfilledStar: Icon(Icons.star, color: Color.fromRGBO(255, 212, 0, 0.5)),
-)
+                        value: 4,
+                        filledStar: Icon(
+                          Icons.star,
+                          color: Color(0xffFFD400),
+                        ),
+                        unfilledStar: Icon(Icons.star,
+                            color: Color.fromRGBO(255, 212, 0, 0.5)),
+                      )
                     ],
                   ),
                 ],
@@ -224,13 +231,15 @@ class EarningCard extends StatelessWidget {
 class StarDisplayWidget extends StatelessWidget {
   final int value;
   final Widget filledStar;
-  final Widget unfilledStar;  const StarDisplayWidget({
+  final Widget unfilledStar;
+  const StarDisplayWidget({
     Key key,
     this.value = 0,
     @required this.filledStar,
     @required this.unfilledStar,
   })  : assert(value != null),
-        super(key: key);  @override
+        super(key: key);
+  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -239,7 +248,9 @@ class StarDisplayWidget extends StatelessWidget {
       }),
     );
   }
-}class StarDisplay extends StarDisplayWidget {
+}
+
+class StarDisplay extends StarDisplayWidget {
   const StarDisplay({Key key, int value = 0})
       : super(
           key: key,
