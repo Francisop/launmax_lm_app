@@ -65,7 +65,6 @@ class _OrderScreenState extends State<OrderScreen> {
                     tap: null,
                     status: "pending",
                   ),
-                
                   SizedBox(
                     height: 26,
                   ),
@@ -81,7 +80,6 @@ class _OrderScreenState extends State<OrderScreen> {
                     tap: null,
                     status: "pending",
                   ),
-                
                   SizedBox(
                     height: 26,
                   ),
@@ -97,7 +95,6 @@ class _OrderScreenState extends State<OrderScreen> {
                     tap: null,
                     status: "pending",
                   ),
-                
                   SizedBox(
                     height: 26,
                   ),
@@ -134,51 +131,86 @@ class MyCards extends StatelessWidget {
       onTap: tap,
       child: Card(
           elevation: 9.9,
-          color: Colors.transparent,
+          color: Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          child: Column(children: [
-            Container(
-                child: Row(
-              children: [
-                Container(
-                  child: Row(children: [
-                    Icon(Icons.timer),
-                    Text(status.toUpperCase()),
-                  ]),
-                ),
-                Container(
-                  child: Text("sep 06, 2020 03:36 PM"),
-                )
-              ],
-            )),
-            Divider(),
-            Container(
-              child: Column(children: [
-                Container(child: Text(orderNo)),
-                Container(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal:14,vertical: 22),
+            child: Column(children: [
+              Container(
                   child: Row(
-                    children: [
-                      Text('item'),
-                      Text(items.toString()),
-                    ],
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    child: Row(children: [
+                      Icon(Icons.timer),
+                      SizedBox(width: 10),
+                      Text(status.toUpperCase()),
+                    ]),
                   ),
-                )
-              ]),
-            ),
-            Divider(),
-            Container(
-              child: Row(children: [
-                Text('VALUE OF ITEMS'),
-                Text('NGN $value'),
-                Text('QUANTITY'),
-                Text(quantity.toString()),
-              ]),
-            ),
-          ])),
+                  Container(
+                    child: Text("sep 06, 2020 03:36 PM"),
+                  )
+                ],
+              )),
+              Divider(),
+              Container(
+                child: Column(children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(orderNo,
+                        style: TextStyle(color: Theme.of(context).primaryColor)),
+                  ),
+                  Container(
+                    child: Row(
+                      children: [
+                        Text('item'),
+                        SizedBox(width: 10),
+                        Text(items.fold(" ", (v, e) => "$v" + " $e"),
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColorLight)),
+                      ],
+                    ),
+                  )
+                ]),
+              ),
+              Divider(),
+              Container(
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                          child: Row(
+                        children: [
+                          Text('VALUE OF ITEMS'),
+                          Text(
+                            '  NGN $value',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 12),
+                          ),
+                        ],
+                      )),
+                      Container(
+                          child: Row(
+                        children: [
+                          Text('QUANTITY'),
+                          Text(
+                            quantity.toString(),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 12),
+                          ),
+                        ],
+                      )),
+                    ]),
+              ),
+            ]),
+          )),
     );
   }
 }
-
 
 // Theme.of(context).accentColor
