@@ -55,6 +55,9 @@ class _OrderScreenState extends State<OrderScreen> {
           padding: const EdgeInsets.only(left: 15.0, right: 15),
           child: TabBarView(
             children: [
+////////////////////////////////////////////////////////
+              /// this is the pending tab
+              /////////////////////////////////////////////////
               ListView(
                 children: [
                   MyCards(
@@ -70,6 +73,10 @@ class _OrderScreenState extends State<OrderScreen> {
                   ),
                 ],
               ),
+
+              ////////////////////////////////////////////////////////
+              /// this is the Completed tab
+              /////////////////////////////////////////////////
               ListView(
                 children: [
                   MyCards(
@@ -78,13 +85,16 @@ class _OrderScreenState extends State<OrderScreen> {
                     orderNo: "Order No1947034",
                     quantity: 2,
                     tap: null,
-                    status: "pending",
+                    status: "completed",
                   ),
                   SizedBox(
                     height: 26,
                   ),
                 ],
               ),
+              ////////////////////////////////////////////////////////
+              /// this is the Uncompleted tab
+              /////////////////////////////////////////////////
               ListView(
                 children: [
                   MyCards(
@@ -93,7 +103,7 @@ class _OrderScreenState extends State<OrderScreen> {
                     orderNo: "Order No1947034",
                     quantity: 2,
                     tap: null,
-                    status: "pending",
+                    status: "Uncompleted",
                   ),
                   SizedBox(
                     height: 26,
@@ -135,7 +145,7 @@ class MyCards extends StatelessWidget {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal:14,vertical: 22),
+            padding: EdgeInsets.symmetric(horizontal: 14, vertical: 22),
             child: Column(children: [
               Container(
                   child: Row(
@@ -143,9 +153,30 @@ class MyCards extends StatelessWidget {
                 children: [
                   Container(
                     child: Row(children: [
-                      Icon(Icons.timer),
+                      status == "pending"
+                          ? Icon(
+                              Icons.timer,
+                              color: Colors.orangeAccent,
+                            )
+                          : status == "completed"
+                              ? Icon(
+                                  Icons.check,
+                                  color: Theme.of(context).primaryColorLight,
+                                )
+                              : Icon(
+                                  Icons.access_time,
+                                  color: Color(0xff999999),
+                                ),
                       SizedBox(width: 10),
-                      Text(status.toUpperCase()),
+                      Text(
+                        status.toUpperCase(),
+                        style: TextStyle(
+                            color: status == "pending"
+                                ? Colors.orangeAccent
+                                : status == "completed"
+                                    ? Theme.of(context).primaryColorLight
+                                    : Color(0xff999999)),
+                      ),
                     ]),
                   ),
                   Container(
@@ -159,12 +190,18 @@ class MyCards extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerLeft,
                     child: Text(orderNo,
-                        style: TextStyle(color: Theme.of(context).primaryColor,fontSize: 20)),
+                        style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 20)),
                   ),
                   Container(
                     child: Row(
                       children: [
-                        Text('Item:',style: TextStyle(color: Color(0xff999999),fontSize: 17),),
+                        Text(
+                          'Item:',
+                          style:
+                              TextStyle(color: Color(0xff999999), fontSize: 17),
+                        ),
                         SizedBox(width: 10),
                         Text(items.fold("", (v, e) => "$v" + " ,$e"),
                             style: TextStyle(
