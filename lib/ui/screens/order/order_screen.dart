@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:launmax_lm_app/models/order.dart';
 import 'package:launmax_lm_app/ui/res.dart';
 
 import '../../widgets/app_app_bar.dart';
@@ -55,61 +56,67 @@ class _OrderScreenState extends State<OrderScreen> {
           padding: const EdgeInsets.only(left: 15.0, right: 15),
           child: TabBarView(
             children: [
-////////////////////////////////////////////////////////
+              //////////////////////////////////////////////////
               /// this is the pending tab
               /////////////////////////////////////////////////
-              ListView(
-                children: [
-                  MyCards(
-                    items: ["Agbada", "Buba", "Sokoto"],
-                    value: 1000,
-                    orderNo: "Order No1947034",
-                    quantity: 2,
-                    tap: null,
-                    status: "pending",
-                  ),
-                  SizedBox(
-                    height: 26,
-                  ),
-                ],
+              Container(
+                child: ListView.builder(
+                    itemCount: dummyOrder.length,
+                    itemBuilder: (context, i) {
+                      return dummyOrder[i].status == "pending"
+                          ? MyCards(
+                              items: dummyOrder[i].items,
+                              value: dummyOrder[i].value,
+                              orderNo: dummyOrder[i].orderNo,
+                              quantity: dummyOrder[i].quantity,
+                              tap: null,
+                              status: dummyOrder[i].status,
+                            )
+                          : Container();
+                    }),
               ),
 
               ////////////////////////////////////////////////////////
               /// this is the Completed tab
               /////////////////////////////////////////////////
-              ListView(
-                children: [
-                  MyCards(
-                    items: ["Agbada", "Buba", "Sokoto"],
-                    value: 1000,
-                    orderNo: "Order No1947034",
-                    quantity: 2,
-                    tap: null,
-                    status: "completed",
-                  ),
-                  SizedBox(
-                    height: 26,
-                  ),
-                ],
+              Container(
+                child: ListView.builder(
+                    itemCount: dummyOrder.length,
+                    itemBuilder: (context, i) {
+                      return dummyOrder[i].status == "completed"
+                          ? MyCards(
+                              items: dummyOrder[i].items,
+                              value: dummyOrder[i].value,
+                              orderNo: dummyOrder[i].orderNo,
+                              quantity: dummyOrder[i].quantity,
+                              tap: null,
+                              status: dummyOrder[i].status,
+                            )
+                          : Container();
+                    }),
               ),
               ////////////////////////////////////////////////////////
               /// this is the Uncompleted tab
               /////////////////////////////////////////////////
-              ListView(
-                children: [
-                  MyCards(
-                    items: ["Agbada", "Buba", "Sokoto"],
-                    value: 1000,
-                    orderNo: "Order No1947034",
-                    quantity: 2,
-                    tap: null,
-                    status: "Uncompleted",
-                  ),
-                  SizedBox(
-                    height: 26,
-                  ),
-                ],
+              Container(
+                child: ListView.builder(
+                    itemCount: dummyOrder.length,
+                    itemBuilder: (context, i) {
+                      return dummyOrder[i].status == "uncompleted"
+                          ? MyCards(
+                              items: dummyOrder[i].items,
+                              value: dummyOrder[i].value,
+                              orderNo: dummyOrder[i].orderNo,
+                              quantity: dummyOrder[i].quantity,
+                              tap: null,
+                              status: dummyOrder[i].status,
+                            )
+                          : Container();
+                    }),
               ),
+////////////////////////////
+              ///end
+              /////////////////////////
             ],
           ),
         ),
