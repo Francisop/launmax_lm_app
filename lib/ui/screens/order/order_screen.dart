@@ -159,14 +159,14 @@ class MyCards extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerLeft,
                     child: Text(orderNo,
-                        style: TextStyle(color: Theme.of(context).primaryColor)),
+                        style: TextStyle(color: Theme.of(context).primaryColor,fontSize: 20)),
                   ),
                   Container(
                     child: Row(
                       children: [
-                        Text('item'),
+                        Text('Item:',style: TextStyle(color: Color(0xff999999),fontSize: 17),),
                         SizedBox(width: 10),
-                        Text(items.fold(" ", (v, e) => "$v" + " $e"),
+                        Text(items.fold("", (v, e) => "$v" + " ,$e"),
                             style: TextStyle(
                                 color: Theme.of(context).primaryColorLight)),
                       ],
@@ -195,7 +195,7 @@ class MyCards extends StatelessWidget {
                       Container(
                           child: Row(
                         children: [
-                          Text('QUANTITY'),
+                          Text('QUANTITY '),
                           Text(
                             quantity.toString(),
                             style: TextStyle(
