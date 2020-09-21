@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:launmax_lm_app/ui/screens/order/order_screen.dart';
 
 import '../../styles.dart';
 import '../../widgets/app_card.dart';
@@ -78,7 +79,10 @@ class HomePage extends StatelessWidget {
             HomePageCard(
               text: "Orders",
               iconPath: 'assets/images/delivery2.svg',
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => OrderScreen()));
+              },
             ),
             HomePageCard(
               text: "Deliveries",
